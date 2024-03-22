@@ -1,0 +1,19 @@
+.activities-img{
+    /* width:20%;
+    height:20%; */
+    padding:13px;
+}
+
+.activities-a{
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.links-a{
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
