@@ -6,7 +6,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
 	<link rel="icon" type="image/png" href="./assets/img/demo/logo.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>山东大学 - 学生指导中心 - 加入我们</title>
+	<title>2023秋季学期朋辈导师团队筹备工作结束</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
 	<!-- Google Font -->
@@ -113,50 +113,40 @@ HEADER
 	<!--------------------------------------
 MAIN
 --------------------------------------->
+<div class="padding-stuff"></div>
 
-	<div class="padding-stuff"></div>
-	<div class="container">
-		<div class="col justify-content-between" style="border: 1px solid #666;">
-			<h3>加入我们</h3>
-			<div class="row">
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="姓名">
-				</div>
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="手机">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="邮箱">
-				</div>
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="学号">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<textarea class="form-control input-round" placeholder="备注信息"></textarea>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<button type="submit" class="btn btn-primary btn-round">提交</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- js script -->
-	<script>
-		$(document).ready(function () {
-			$(".list-featured li").click(function () {
-				$(this).addClass("active").siblings().removeClass("active");
-				var index = $(this).index();
-				$(".paragraph").eq(index).show().siblings().hide();
-			});
-		});
-	</script>
+<div class="container" id="article-container">
+<h1 style="padding:0 100px;">2023秋季学期朋辈导师团队筹备工作结束</h1>
+<h2 style="padding:20px 100px;">作者: 王森   发布时间: 2023-11-06</h2>
+	<p style="padding:0 100px;">
+		10月31日至11月4日，山软智库开展朋辈导师团队筹备工作。本次筹备工作包括面试和培训两部分。
+		10月31日晚开展了本学期朋辈导师团队面试工作，面试以线上会议形式展开，由山软智库库长程俊皓主持，负责人还包括张天戈、逯荣林、王森三位山软智库骨干成员。
+		面试过程中，负责人们围绕“你加入朋辈助学团队的初心是什么”对面试者们进行了全方面的综合考察，深入了解面试者们在学习态度、责任心等方面的情况，面试者们也呈现出了自己最好的一面。
+		 <br>
+		11月4日晚开展了本学期朋辈导师团队培训工作，本次会议由程俊皓线上主讲，吴文林等线下主持交流。培训过程中，程俊皓介绍了本学期朋辈助学工作的主要内容，并重点分析了以往工作中的不足之处，同时针对工作细节上的问题为大家进行答疑解惑。
+		 <br>
+		培训过程中，具有丰富朋辈助学工作经验的朋辈导师张天戈为大家分享了自己在以往重点科目、重点学生这两方面帮扶过程中的工作经验和心得体会，勉励大家在朋辈助学的道路上不忘初心，砥砺前行。
+		 <br>
+		本次朋辈助学团队筹备工作的顺利开展是本学期朋辈助学工作的良好开端，山软智库朋辈助学部将会以此为基点，不断改进朋辈助学工作，促进软件学院全体同学的全面发展。
+		
+	</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+// get ./mds/article-1.md
+// onload
+$(document).ready(function(){
+	
+	$.ajax({
+		type:"get",
+		url:"./mds/news-2.md",
+		dataType:"html",
+		success:function(res){
+			$("#article-container").html(marked.parse(res));
+		}
+	})
+})
+</script>
 
 	<div class="padding-stuff"></div>
 	<!-- 友情链接 -->
@@ -194,8 +184,8 @@ FOOTER
 					<span>邮编：250000</span>
 				</div>
 				<div>
-					<img src="./assets/img/icon/qrcode.png" alt="二维码" class="" style="width:210px;height:100px;">
-					<!-- <span>官方微信公众号</span> -->
+					<img src="./assets/img/demo/blog8.jpg" alt="二维码" class="bottom-qrcode">
+					<span>官方微信公众号</span>
 				</div>
 			</div>
 		</footer>

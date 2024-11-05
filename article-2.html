@@ -6,7 +6,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
 	<link rel="icon" type="image/png" href="./assets/img/demo/logo.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>山东大学 - 学生指导中心 - 加入我们</title>
+	<title>山东大学 - 软件学院2024年春季学期朋辈学业导师助学岗位招募通知</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
 	<!-- Google Font -->
@@ -113,50 +113,53 @@ HEADER
 	<!--------------------------------------
 MAIN
 --------------------------------------->
+<div class="padding-stuff"></div>
 
-	<div class="padding-stuff"></div>
-	<div class="container">
-		<div class="col justify-content-between" style="border: 1px solid #666;">
-			<h3>加入我们</h3>
-			<div class="row">
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="姓名">
-				</div>
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="手机">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="邮箱">
-				</div>
-				<div class="col">
-					<input type="text" class="form-control input-round" placeholder="学号">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<textarea class="form-control input-round" placeholder="备注信息"></textarea>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<button type="submit" class="btn btn-primary btn-round">提交</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- js script -->
-	<script>
-		$(document).ready(function () {
-			$(".list-featured li").click(function () {
-				$(this).addClass("active").siblings().removeClass("active");
-				var index = $(this).index();
-				$(".paragraph").eq(index).show().siblings().hide();
-			});
-		});
-	</script>
+<div class="container" id="article-container">
+<h1 style="padding:0 100px;">软件学院2024年春季学期朋辈学业导师助学岗位招募通知</h1>
+<h2 style="padding:20px 100px;">作者: 程俊皓:    发布时间: 2024-04-14</h2>
+	<p style="padding:0 100px;">
+		为深化本科教育教学改革，加强学风建设，改进本科学生学业发展指导工作，提升学生学业发展质量，贯彻落实劳动教育实施方案，帮助学生全面成长成才，软件学院将继续实施本科生朋辈学业导师制度，根据工作需要，现发布朋辈学业导师助学岗位招募通知，请有意向的同学积极申报。
+		一、岗位设置
+		本学期朋辈学业导师助学岗位分为两个性质：一是针对“重点科目”的帮扶，二是针对“重点学生”的帮扶。具体岗位设置及拟聘人数见下表：
+		岗位名称	招聘人数/人
+		2023级高等数学2	1
+		2023级线性代数	1
+		2023级离散数学1	1
+		2023级大学物理	1
+		2022级操作系统	1
+		2022级数据库系统	1
+		2022级算法设计与分析	1
+		学业困难学生	8
+		总计	15
+		
+		二、岗位要求
+		1、承担本科生朋辈学业导师工作的学生应为大学二年级及以上的在校本科生，思想态度端正，具备优秀的责任意识和服务态度，学习成绩优秀，学有余力，具有较好的协调沟通能力。
+		2、本科生朋辈学业导师每周的工作时间约8小时，同一学期内，一个学生只能申请一个朋辈学业导师岗位。
+		3、本科生“重点科目”朋辈学业导师应根据负责老师的要求，完成教育教学工作，包括：学习经验分享、线下辅导授课、线上日常答疑、习题编写和答疑等。
+		4、本科生“重点学生”朋辈学业导师应按照分配情况，每人负责6~7名“重点学生”的帮扶工作，包括：学习路线规划、监督集体自习、作业验收、周报验收、习题答疑、阶段测验等。
+		5、我们将根据报名情况，组织统一的面试考核和培训工作，面试和培训均拟定于第8周。
+		6、朋辈学业导师应如实记录工作内容及工作时数，会进行定期考核，根据考核结果发放相应的薪酬。
+		三、报名方式
+		请有意向的同学填写附件1并发送至邮箱samwang1010@outlook.com进行申请，申请截止时间为2024年4月17日。
+		
+	</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+// get ./mds/article-1.md
+// onload
+$(document).ready(function(){
+	$.ajax({
+		type:"get",
+		url:"./mds/article-2.md",
+		dataType:"html",
+		success:function(res){
+			$("#article-container").html(marked.parse(res));
+		}
+	})
+})
+</script>
 
 	<div class="padding-stuff"></div>
 	<!-- 友情链接 -->
@@ -194,8 +197,8 @@ FOOTER
 					<span>邮编：250000</span>
 				</div>
 				<div>
-					<img src="./assets/img/icon/qrcode.png" alt="二维码" class="" style="width:210px;height:100px;">
-					<!-- <span>官方微信公众号</span> -->
+					<img src="./assets/img/demo/blog8.jpg" alt="二维码" class="bottom-qrcode">
+					<span>官方微信公众号</span>
 				</div>
 			</div>
 		</footer>
