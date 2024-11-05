@@ -2,6 +2,9 @@
     /* width:20%;
     height:20%; */
     padding:13px;
+    width: 133px;
+    margin: 10px auto;
+    display: block;
 }
 
 .activities-a{
@@ -16,4 +19,16 @@
     text-decoration: none;
     text-align: center;
     display: block;
+}
+
+.text-dark{
+    font-size: 1.0em;
+}
+
+.brief-intro-p{
+    font-size: 0.9em;
+    padding-top: 8px;
+}
+.brief-intro-div{
+    font-size: 0.8em;
 }
