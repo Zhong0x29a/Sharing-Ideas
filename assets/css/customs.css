@@ -6,3 +6,33 @@
     width:80px;
     height:80px;
 }
+
+.in-middle{
+    display: flex;
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.larger-margin{
+    margin: 20px 10px;
+}
+
+.list-simple{
+    list-style-type: square;
+    padding: 0;
+}
+
+.list-simple li{
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid #000;
+}
+
+.list-simple li:first-child{
+    border-top: 0;
+}
+
+#article-container{
+    padding: 20px 88px;
+}
