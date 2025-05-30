@@ -25,51 +25,51 @@
 	<!--------------------------------------
 NAVBAR
 --------------------------------------->
-<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
-	<div class="container">
-		<a class="navbar-brand" href="./index.html"><strong>山软智库</strong></a>
-		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
-			aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="navbar-collapse collapse" id="navbarColor02" style="">
-			<ul class="navbar-nav mr-auto d-flex align-items-center">
-				<li class="nav-item">
-					<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./about-us.html">介绍</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./activities.html">品牌活动</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./downloads.html">资料下载</a>
-				</li>
-				<!-- <li class="nav-item">
+	<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="./index.html"><strong>山软智库</strong></a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+				aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse" id="navbarColor02" style="">
+				<ul class="navbar-nav mr-auto d-flex align-items-center">
+					<li class="nav-item">
+						<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./about-us.html">介绍</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./activities.html">品牌活动</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./downloads.html">资料下载</a>
+					</li>
+					<!-- <li class="nav-item">
 					<a class="nav-link" href="./join-us.html">加入我们</a>
 				</li> -->
-				<!-- <li class="nav-item">
+					<!-- <li class="nav-item">
 					<a class="nav-link" href="./article.html">加入我们</a>
 				</li> -->
-				<!-- <li class="nav-item">
+					<!-- <li class="nav-item">
 					<a class="nav-link" href="./about.html">About</a>
 				</li> -->
-				<li class="nav-item">
-					<a class="nav-link" href="./join-us.html">加入我们
-						<span class="badge badge-secondary">New</span>
-					</a>
-				</li>
-			</ul>
-			<!-- <ul class="navbar-nav ml-auto d-flex align-items-center">
+					<li class="nav-item">
+						<a class="nav-link" href="./join-us.html">加入我们
+							<span class="badge badge-secondary">New</span>
+						</a>
+					</li>
+				</ul>
+				<!-- <ul class="navbar-nav ml-auto d-flex align-items-center">
 				<li class="nav-item highlight">
 					<a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get
 						this Theme</a>
 				</li>
 			</ul> -->
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 	<!-- End Navbar -->
 
 
@@ -113,42 +113,42 @@ HEADER
 	<!--------------------------------------
 MAIN
 --------------------------------------->
-<div class="padding-stuff"></div>
+	<div class="padding-stuff"></div>
 
-<div class="container" id="article-container">
-<h1 style="padding:0 100px;">软件学院开展考研经验分享会</h1>
-<h2 style="padding:20px 100px;">作者: 彭俊杰     发布时间: 2023-11-30</h2>
-	<p style="padding:0 100px;">
-		11月26日，由软件学院山软智库组织的考研经验分享会于线上召开。此次讲座面向全体学生，邀请杨童凯、何梓瑞和曲志久三位学生担任主讲嘉宾。
-		本次讲座，对于在考研过程中的初试与复试的相关问题做了细致的讲解。首先，杨童凯针对考研的学习，分享了自己的经验。他详细地列举出了不同学科的考研资料，并在每一个学科上给出了自己的经验和建议。
-		 <br>
-		随后，何梓瑞也分享了在复试上的经验，强调了心态和正常作息对于考研的重要性，避免关注释放焦虑的内容，而是多多关注院校信息。
-		 
-		<br>
-		 
-		最后，曲志久对于学习方法等，也分享了自己的观点。记忆类内容要善于利用软件，数学要保证一定手感等。
-		 <br>
-		  
-		本次考研讲座旨在帮助学生全面深入了解考研方面的相关情况，有利于学生学生明确前进的方向，从而更好地规划大学生活；有利于软件特色化人才的培育，为软件专业提供充足的储备力量。
-		
-	</p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-// get ./mds/article-1.md
-// onload
-$(document).ready(function(){
-	
-	$.ajax({
-		type:"get",
-		url:"./mds/news-1.md",
-		dataType:"html",
-		success:function(res){
-			$("#article-container").html(marked.parse(res));
-		}
-	})
-})
-</script>
+	<div class="container" id="article-container">
+		<h1 style="padding:0 100px;">软件学院开展考研经验分享会</h1>
+		<h2 style="padding:20px 100px;">作者: 彭俊杰 发布时间: 2023-11-30</h2>
+		<p style="padding:0 100px;">
+			11月26日，由软件学院山软智库组织的考研经验分享会于线上召开。此次讲座面向全体学生，邀请杨童凯、何梓瑞和曲志久三位学生担任主讲嘉宾。
+			本次讲座，对于在考研过程中的初试与复试的相关问题做了细致的讲解。首先，杨童凯针对考研的学习，分享了自己的经验。他详细地列举出了不同学科的考研资料，并在每一个学科上给出了自己的经验和建议。
+			<br>
+			随后，何梓瑞也分享了在复试上的经验，强调了心态和正常作息对于考研的重要性，避免关注释放焦虑的内容，而是多多关注院校信息。
+
+			<br>
+
+			最后，曲志久对于学习方法等，也分享了自己的观点。记忆类内容要善于利用软件，数学要保证一定手感等。
+			<br>
+
+			本次考研讲座旨在帮助学生全面深入了解考研方面的相关情况，有利于学生学生明确前进的方向，从而更好地规划大学生活；有利于软件特色化人才的培育，为软件专业提供充足的储备力量。
+
+		</p>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script>
+		// get ./mds/article-1.md
+		// onload
+		$(document).ready(function () {
+
+			$.ajax({
+				type: "get",
+				url: "./mds/news-1.md",
+				dataType: "html",
+				success: function (res) {
+					$("#article-container").html(marked.parse(res));
+				}
+			})
+		})
+	</script>
 
 	<div class="padding-stuff"></div>
 	<!-- 友情链接 -->
