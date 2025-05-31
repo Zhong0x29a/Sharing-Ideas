@@ -189,6 +189,8 @@ window.onload = function () {
 function set_downloads(){
 // Download data list
 var down_list = [
+{url:"./Downloads/知识见解合集/git_pr.pdf",
+name:"git_pr"},
 {url:"./Downloads/知识见解合集/01_高级程序设计语言_山软智库知识见解_V1.0.pdf",
 name:"01_高级程序设计语言_山软智库知识见解_V1.0.pdf"},
 {url:"./Downloads/知识见解合集/02_数据结构_山软智库知识见解_V1.1.pdf",
@@ -236,14 +238,25 @@ name:"22_高数_山软智库知识见解.pdf"},
 ]
 var olist_knowledge = document.getElementById("knowledge-insign");
 for (var i = 0; i < down_list.length; i++) {
-	var oli = document.createElement("li");
-	var oa = document.createElement('a');
-	oa.href = down_list[i].url;
-	oa.innerHTML = down_list[i].name;
-	oa.className = "listed-item-a";
-	oli.appendChild(oa);
-	olist_knowledge.appendChild(oli);
-}
+        var oli = document.createElement("li");
+        var oa = document.createElement('a');
+        // 确保 URL 正确编码
+        var encodedUrl = encodeURI(down_list[i].url);
+        var encodedName = encodeURIComponent(down_list[i].name);
+        // 修改链接指向预览页面并携带 PDF URL 参数
+        oa.href = `preview.html?pdf=${encodedUrl}&name=${encodedName}`;
+        oa.innerHTML = down_list[i].name;
+        oa.className = "listed-item-a";
+        // 添加 target="_blank" 在新窗口打开
+        oa.target = "_blank";
+        // // 添加点击事件记录下载
+        // oa.addEventListener('click', function(e) {
+        //     // 这里可以添加记录下载次数的代码
+        //     console.log('下载记录:', this.getAttribute('href'));
+        // });
+        oli.appendChild(oa);
+        olist_knowledge.appendChild(oli);
+    }
 }
 
 </script>

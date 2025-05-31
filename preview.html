@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山东大学 - 资料预览</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F52BA',
+                        secondary: '#1E3A8A',
+                        accent: '#3B82F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="./index.html" class="text-primary font-bold text-xl flex items-center">
+                <i class="fa fa-university mr-2"></i>
+                <span>山软智库</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                <a href="./about-us.html" class="text-gray-700 hover:text-primary transition-colors">介绍</a>
+                <a href="./activities.html" class="text-gray-700 hover:text-primary transition-colors">品牌活动</a>
+                <a href="./downloads.html" class="text-primary font-medium">资料下载</a>
+                <a href="./join-us.html" class="text-gray-700 hover:text-primary transition-colors">加入我们</a>
+            </div>
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+    </nav>
+
+    <!-- 主内容区 -->
+    <div class="container mx-auto px-4 pt-24 pb-12">
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- 侧边栏 -->
+            <div class="md:w-1/4">
+                <div class="bg-white rounded-lg shadow-md p-5 sticky top-24">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">资料信息</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fa fa-file-pdf-o text-primary mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-900" id="file-name">文件名称</h4>
+                                <p class="text-sm text-gray-500" id="file-size">文件大小：--</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100">
+                            <button id="download-btn" class="w-full bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-md transition-all duration-200 flex items-center justify-center">
+                                <i class="fa fa-download mr-2"></i>
+                                <span>下载文件</span>
+                            </button>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100">
+                            <a href="./downloads.html" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-md transition-all duration-200 flex items-center justify-center">
+                                <i class="fa fa-arrow-left mr-2"></i>
+                                <span>返回资料列表</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 预览区 -->
+            <div class="md:w-3/4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden h-[80vh]">
+                    <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
+                        <h2 class="font-semibold text-gray-800" id="preview-title">文件预览</h2>
+                        <div class="flex space-x-2">
+                            <button id="zoom-in" class="text-gray-600 hover:text-primary p-1 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="fa fa-search-plus"></i>
+                            </button>
+                            <button id="zoom-out" class="text-gray-600 hover:text-primary p-1 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="fa fa-search-minus"></i>
+                            </button>
+                            <button id="fullscreen" class="text-gray-600 hover:text-primary p-1 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative h-full" id="preview-container">
+                        <div id="loading-indicator" class="absolute inset-0 flex items-center justify-center bg-white/80 z-10">
+                            <div class="flex flex-col items-center">
+                                <div class="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin mb-3"></div>
+                                <p class="text-gray-600">正在加载文件...</p>
+                            </div>
+                        </div>
+                        <iframe id="pdf-iframe" class="w-full h-full" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-3', 'shadow-md');
+            } else {
+                navbar.classList.add('py-3', 'shadow-md');
+                navbar.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+
+
+        // 获取 URL 参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfUrl = urlParams.get('pdf');
+        const pdfName = decodeURIComponent(urlParams.get('name'));
+        
+        // 设置页面标题和文件信息
+        document.title = `山东大学 - ${pdfName}`;
+        document.getElementById('file-name').textContent = pdfName;
+        document.getElementById('preview-title').textContent = pdfName;
+        
+        // 设置 iframe 源
+        const pdfIframe = document.getElementById('pdf-iframe');
+        pdfIframe.src = pdfUrl;
+        
+        // 文件加载完成后隐藏加载指示器
+        pdfIframe.onload = function() {
+            document.getElementById('loading-indicator').style.display = 'none';
+            // 尝试获取文件大小（需要服务器支持CORS）
+            fetch(pdfUrl, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        const contentLength = response.headers.get('content-length');
+                        if (contentLength) {
+                            const fileSize = formatFileSize(parseInt(contentLength));
+                            document.getElementById('file-size').textContent = `文件大小：${fileSize}`;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('获取文件大小失败:', error);
+                });
+        };
+
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // 下载按钮点击事件（直接触发浏览器下载）
+        document.getElementById('download-btn').addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止默认行为
+            
+            try {
+                // 创建临时链接并点击
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.download = pdfName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // 显示下载反馈
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fa fa-check mr-2"></i><span>下载已开始</span>';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            } catch (error) {
+                console.error('下载出错:', error);
+                alert(`下载失败: ${error.message}`);
+            }
+        });
+
+        // 缩放和全屏控制
+        let currentScale = 1;
+        document.getElementById('zoom-in').addEventListener('click', function() {
+            if (currentScale < 2) {
+                currentScale += 0.1;
+                updateIframeTransform();
+            }
+        });
+
+        document.getElementById('zoom-out').addEventListener('click', function() {
+            if (currentScale > 0.5) {
+                currentScale -= 0.1;
+                updateIframeTransform();
+            }
+        });
+
+        document.getElementById('fullscreen').addEventListener('click', function() {
+            const previewContainer = document.getElementById('preview-container');
+            if (!document.fullscreenElement) {
+                previewContainer.requestFullscreen().catch(err => {
+                    alert(`全屏请求出错: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        function updateIframeTransform() {
+            pdfIframe.style.transform = `scale(${currentScale})`;
+            pdfIframe.style.transformOrigin = 'top left';
+            pdfIframe.style.width = `${100 / currentScale}%`;
+            pdfIframe.style.height = `${100 / currentScale}%`;
+        }
+    </script>
+</body>
+</html>
