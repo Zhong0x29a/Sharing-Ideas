@@ -32,4 +32,4 @@ Open the project folder with IDE, such as Visual Studio Code. Try to edit the co
 
 #### 2.2 Commit and create pull request
 
-*TBD*.
+See [How to create Git PR](https://zhong0x29a.github.io/Sharing-Ideas/downloads/KnowledgeSet/git_pr.pdf).
