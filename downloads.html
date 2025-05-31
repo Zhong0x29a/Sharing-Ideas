@@ -241,7 +241,7 @@ for (var i = 0; i < down_list.length; i++) {
         var oli = document.createElement("li");
         var oa = document.createElement('a');
         // 确保 URL 正确编码
-        var encodedUrl = encodeURI(down_list[i].url);
+        var encodedUrl = encodeURI('/Sharing-Ideas/'+down_list[i].url); // for temp
         var encodedName = encodeURIComponent(down_list[i].name);
         // 修改链接指向预览页面并携带 PDF URL 参数
         oa.href = `preview.html?pdf=${encodedUrl}&name=${encodedName}`;
